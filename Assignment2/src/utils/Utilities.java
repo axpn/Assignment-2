@@ -54,6 +54,9 @@ public class Utilities {
     public static boolean validRange(int numberToCheck, int min, int max) {
         return ((numberToCheck >= min) && (numberToCheck <= max));
     }
+    public static boolean validRange(double numberToCheck, double min){
+        return numberToCheck >= min;
+    }//this method is specially written for the valid range for a value price in Technology class
 
     public static boolean validRange(float numbertoCheck, float min, float max, float delta) {
         return ((numbertoCheck >= (min-delta)) && (numbertoCheck <= (max+delta)));

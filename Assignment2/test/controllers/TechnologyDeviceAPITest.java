@@ -117,7 +117,8 @@ class TechnologyDeviceAPITest {
             assertEquals(4, populatedDevices.numberOfTechnologyDevices());
             //checks the order of the objects in the list
 
-            assertEquals("smart watch1", populatedDevices.getTechnologyByIndex(0).getModelName());
+            assertEquals("smart watch1",
+                    populatedDevices.getTechnologyByIndex(0).getModelName());
             assertEquals("Smart Watch 12", populatedDevices.getTechnologyByIndex(1).getModelName());
 
             assertEquals("IPad 123", populatedDevices.getTechnologyByIndex(2).getModelName());

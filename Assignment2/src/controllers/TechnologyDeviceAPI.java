@@ -14,6 +14,29 @@ import java.util.*;
 
 //TODO - ensure that this class implements iSerializer
 public class TechnologyDeviceAPI {
+    public TechnologyDeviceAPI(File file) {
+    }
+
+    public void load() {
+    }
+
+    public int numberOfTechnologyDevices() {
+    }
+
+    public void addTechnologyDevice(Tablet newTab) {
+    }
+
+    public String listAllTechnologyDevices() {
+    }
+
+    public String listAllTechnologyAbovePrice(double v) {
+    }
+
+    public Object getTechnologyByIndex(int i) {
+    }
+
+    public void sortByPriceDescending() {
+    }
     //TODO - create 2 fields
 
     //TODO - create constructor
