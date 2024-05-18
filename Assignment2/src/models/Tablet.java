@@ -26,6 +26,7 @@ return operatingSystem;
             this.operatingSystem=operatingSystem;
         }
     }
+    @Override
     public String toString(){
         return "Operating System:"+operatingSystem+", Insurance Premium: €"+getInsurancePremium();
     }
