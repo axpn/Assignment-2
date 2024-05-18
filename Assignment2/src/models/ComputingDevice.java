@@ -28,6 +28,6 @@ public ComputingDevice(String modelName, Double price, Manufacturer manufacturer
     }
     @Override
     public String toString(){
-    return "ComputingDevice{"+"storage="+storage+"GB,"+"processor="+processor+"}";
+    return "Processor:"+processor+", Storage:"+storage+"GB";
     }
 }

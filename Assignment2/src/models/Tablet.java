@@ -26,4 +26,7 @@ return operatingSystem;
             this.operatingSystem=operatingSystem;
         }
     }
+    public String toString(){
+        return "Operating System:"+operatingSystem+", Insurance Premium: €"+getInsurancePremium();
+    }
 }
