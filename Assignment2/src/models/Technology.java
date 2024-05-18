@@ -1,7 +1,5 @@
 package models;
 import utils.Utilities;
-
-import java.util.Objects;
 public abstract class Technology {
     private String modelName ; //should be max 30 characters    no default value
     private double price = 20; //must be >= 20   default value 20
@@ -9,7 +7,7 @@ public abstract class Technology {
     private String id = "unknown";//should be max 10 characters   default value "unknown"
     public Technology(String modelName, Double price, Manufacturer manufacturer, String id){
         this.modelName = Utilities.truncateString(modelName,30);//restrictions if the modelName is over 30 characters,it will be truncated to 30 characters
-        this.price = price;//restrictions will be added in set method
+        this.price = price;//restrictions will be added in setter method
         this.manufacturer = manufacturer;
         this.id = Utilities.truncateString(id,10);//restrictions if the id is over 10 characters,it  will be truncated to 10 characters
     }
