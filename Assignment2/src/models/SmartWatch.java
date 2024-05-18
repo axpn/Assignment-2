@@ -6,24 +6,24 @@ public  class  SmartWatch extends WearableDevice{
         super(modelName, price, manufacturer, id, size, material);
     }
 
-    public String getDisplaytype() {
-        return displaytype;
+    public String getDisplayType() {
+        return displayType;
     }
 
-    public void setDisplaytype(String displaytype) {
-        if (displaytype=="LCD") {
-            this.displaytype = displaytype;
-        }else if(displaytype=="LED") {
-            this.displaytype = displaytype;
+    public void setDisplayType(String displayType) {
+        if (displayType=="LCD") {
+            this.displayType = displayType;
+        }else if(displayType=="LED") {
+            this.displayType = displayType;
         }
-        if (displaytype=="TFT") {
-            this.displaytype = displaytype;
-        }else if(displaytype=="AMOLED") {
-            this.displaytype = displaytype;
+        if (displayType=="TFT") {
+            this.displayType = displayType;
+        }else if(displayType=="AMOLED") {
+            this.displayType = displayType;
         }
     }
 
-    private String displaytype="LCD";
+    private String displayType="LCD";
 
 
     @Override
@@ -41,7 +41,7 @@ public  class  SmartWatch extends WearableDevice{
             return "smartwatch{" + "InsurancePremium" + getInsurancePremium() + "connectToInternet" + connectToInternet() + "Includes Heart Rate Monitor" +"WearableDevice{" +
                     "size='" + getSize() + '\'' +
                     ", material='" + getMaterial() + '\'' +
-                    '}'+"displaytype"+getDisplaytype();
+                    '}'+"displaytype"+getDisplayType();
 
         }
 
