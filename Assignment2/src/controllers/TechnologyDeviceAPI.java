@@ -30,7 +30,7 @@ public class TechnologyDeviceAPI implements ISerializer{
         return technologyList.add(technology);
     }
     //Read method
-    public String listAllTechnologyDevice(){
+    public String listAllTechnologyDevices(){
         String str = "";
         for (Technology technology : technologyList){
             str += technologyList.indexOf(technology) + ":" + technology.displayCondensed() + "\n";
@@ -168,12 +168,7 @@ public class TechnologyDeviceAPI implements ISerializer{
         return false;
     }
     //Delete method
-    public Technology deleteTechnology(int indexToDelete){
-        if (isValidIndex(indexToDelete)) {
-            return technologyList.remove((indexToDelete));
-        }
-        return null;
-    }
+
     //TODO - Number methods
     public int numberOfTechnologyDevices() {
         return technologyList.size();
@@ -217,22 +212,52 @@ public class TechnologyDeviceAPI implements ISerializer{
     }
 
     // TODO Read/list methods
-    public Object getTechnologyByIndex(int i) {
-    }
+
 
     public String listAllTechnologyAbovePrice(double v) {
+        if (technologyList.isEmpty()) {
+            return "No Products in the store";
+        } else {
+            String str = "";
+            for (int i = 0; i < technologyList.size(); i++) {
+                if (technologyList.get(i).getPrice() > v)
+                    str += i + ": " +technologyList.get(i) + "\n";
+            }
+            if (str.equals("")) {
+                return "No products are more expensive than: " + v;
+            } else {
+                return str;
+            }
+        }
     }
 
 
 
     //TODO get Technology methods
-
+    public Technology getTechnologyByIndex(int i) {
+        if (technologyList.isEmpty()) {
+            return null;
+        } else {
+            Technology printfoundt = null;
+            int idtobedound;
+            for (Technology technology : technologyList) {
+                if (technology.getId() == findTechnology(i).getId())
+                    printfoundt = technology;
+            }
+            return printfoundt;
+        }
+    }
     public List<Technology> getTechnologyList() {
         return technologyList;
     }
 
     //TODO - delete methods
-
+    public Technology deleteTechnology(int indexToDelete){
+        if (isValidIndex(indexToDelete)) {
+            return technologyList.remove((indexToDelete));
+        }
+        return null;
+    }
 
 
     //TODO - sort methods
@@ -265,7 +290,76 @@ public class TechnologyDeviceAPI implements ISerializer{
         technologyList.set(j,temp);
     }//learned from CSDN use"List.set"to swap as Assigning an object reference to another object reference is not allowed.  should swap the positions of the objects in the list directly instead of their references.
     //TODO Top 5 methods
-public List<Technology> topFiveMostExpenxiveTablet(){}
+    public List<Technology> topFiveMostExpensiveTechnology() {
+        for (int i=technologyList.size()-1;i>=0;i--){
+            int highestIndex=i;
+            for (int j=i;j>=0;j--){
+                if (technologyList.get(j).getPrice()<technologyList.get(highestIndex).getPrice()){
+                    highestIndex=j;
+                }
+            }
+            swapTechnology(technologyList,i,highestIndex);
+        }
+
+        List<Technology> top5 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            top5.add(technologyList.get(i));
+        }
+
+        return top5;
+    }
+
+
+    public List<Technology> topFiveMostExpensiveSmartWatch() {
+        for (int i = technologyList.size() - 1; i >= 0; i--) {
+            int highestIndex = i;
+            for (int j = i; j >= 0; j--) {
+                if (technologyList.get(j).getPrice() < technologyList.get(highestIndex).getPrice()) {
+                    highestIndex = j;
+                }
+            }
+            swapTechnology(technologyList, i, highestIndex);
+        }
+        for (Technology technology : technologyList) {
+            if (technology instanceof SmartWatch) {
+                List<Technology> top5 = new ArrayList<>();
+                for (int m = 0; m < 5; m++) {
+                    top5.add(technologyList.get(m));
+                }
+                return top5;
+
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+    public List<Technology> topFiveMostExpensiveTablet() {
+        for (int i = technologyList.size() - 1; i >= 0; i--) {
+            int highestIndex = i;
+            for (int j = i; j >= 0; j--) {
+                if (technologyList.get(j).getPrice() < technologyList.get(highestIndex).getPrice()) {
+                    highestIndex = j;
+                }
+            }
+            swapTechnology(technologyList, i, highestIndex);
+        }
+        for (Technology technology : technologyList) {
+            if (technology instanceof Tablet) {
+                List<Technology> top5 = new ArrayList<>();
+                for (int m = 0; m < 5; m++) {
+                    top5.add(technologyList.get(m));
+                }
+                return top5;
+
+            }
+        }
+        return null;
+    }
+
 
 
 

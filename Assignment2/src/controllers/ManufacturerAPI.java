@@ -8,9 +8,12 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 import models.Manufacturer;
+import models.Technology;
 import utils.ISerializer;
 
 import static utils.Utilities.isValidIndex;
+import static utils.Utilities.truncateString;
+
 //todo include Manufacturer API into starter code
 public class ManufacturerAPI  implements ISerializer {
 
@@ -130,6 +133,7 @@ public class ManufacturerAPI  implements ISerializer {
         }
         return -1;
     }
+
 
     //---------------------
     // Getters/Setters

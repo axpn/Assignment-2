@@ -187,7 +187,7 @@ public class Driver {
             switch (option) {
                 case 1 -> addTechDevice();
                 case 2 -> deleteTechDevice();
-                case 3 -> System.out.println(techAPI.listAllTechnologyDevice());
+                case 3 -> System.out.println(techAPI.listAllTechnologyDevices());
                 case 4 -> updateTechDevice();
                 default -> System.out.println("Invalid option entered" + option);
             }
@@ -203,7 +203,7 @@ public class Driver {
     }
 
     private void deleteTechDevice() {
-        System.out.println(techAPI.listAllTechnologyDevice());
+        System.out.println(techAPI.listAllTechnologyDevices());
         int indexToDelete = ScannerInput.readNextInt("Enter the index of the tech device to delete");
         Technology technologyToDelete = techAPI.deleteTechnology(indexToDelete);
         if (technologyToDelete != null) {
@@ -225,7 +225,7 @@ public class Driver {
                     ==>> """);
             switch (option) {
                 case 1 -> {
-                    System.out.println(techAPI.listAllTechnologyDevice());
+                    System.out.println(techAPI.listAllTechnologyDevices());
                     if (techAPI.numberOfSmartWatch() > 0) {
                         int smartWatchIndex = ScannerInput.readNextInt("Enter the index of the watch to update");
                         if (techAPI.isValidSmartWatchIndex(smartWatchIndex)) {
@@ -243,7 +243,7 @@ public class Driver {
                     }
                 }
                 case 2 -> {
-                    System.out.println(techAPI.listAllTechnologyDevice());
+                    System.out.println(techAPI.listAllTechnologyDevices());
                     if (techAPI.numberOfSmartBands() > 0) {
                         int smartBandIndex = ScannerInput.readNextInt("Enter the index of the watch to update");
                         if (techAPI.isValidSmartWatchIndex(smartBandIndex)) {
@@ -262,7 +262,7 @@ public class Driver {
                     }
                 }
                 case 3 -> {
-                    System.out.println(techAPI.listAllTechnologyDevice());
+                    System.out.println(techAPI.listAllTechnologyDevices());
                     if (techAPI.numberOfTablets() >= 0) {
                         int tabletIndex = ScannerInput.readNextInt("Enter the index of the tablet to update");
                         if (techAPI.isValidTabletIndex(tabletIndex)) {
