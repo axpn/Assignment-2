@@ -18,8 +18,9 @@ public class Tablet extends ComputingDevice {
         return "Connects to the internet via Wi-Fi";
 }
     public String getOperatingSystem(){
-return operatingSystem;
-}
+        return operatingSystem;
+    }
+    public String displayConensed(){return super.getModelName() + super.getPrice   () + super.getManufacturer() + super.getId() + ": Tablet(" + operatingSystem + ")";}
 
     public void setOperatingSystem(String operatingSystem) {
         if(OperatingSystemUtility.isValidOperatingSystem(operatingSystem)){

@@ -28,6 +28,9 @@ public abstract class WearableDevice extends Technology{
             this.material = material;
         }
     }//should be less than 10 chars
+    public String diaplayCondensed(){
+        return super.getModelName() + super.getPrice   () + super.getManufacturer() + super.getId() + ": WearableDevice(" + size + "," + material + ")";
+    }
 
     @Override
     public String toString() {

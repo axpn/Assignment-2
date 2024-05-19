@@ -26,6 +26,7 @@ public ComputingDevice(String modelName, Double price, Manufacturer manufacturer
         this.processor=processor;
     }
     }
+    public String displayCondensed(){return super.getModelName() + super.getPrice   () + super.getManufacturer() + super.getId() + ": ComputingDevice(" + processor + "," + storage + ")";}
     @Override
     public String toString(){
     return "Processor:"+processor+", Storage:"+storage+"GB";

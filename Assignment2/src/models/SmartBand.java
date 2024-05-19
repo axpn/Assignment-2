@@ -24,6 +24,7 @@ this.heartRateMonitor=heartRateMonitor;
     public String connectToInternet() {
         return "Connects to the internet via Companion App";
     }
+    public String displayCondensed(){return super.getModelName() + super.getPrice   () + super.getManufacturer() + super.getId() + ": SmartBand(" + heartRateMonitor + ")";}
     @Override
     public String toString() {
         if(heartRateMonitor=true){
