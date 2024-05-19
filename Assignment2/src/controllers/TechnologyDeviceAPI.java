@@ -35,12 +35,136 @@ public class TechnologyDeviceAPI implements ISerializer{
     public String listAllTechnologyDevice(){
         String str = "";
         for (Technology technology : technologyList){
-            str += technologyList.indexOf(technology) + ":" + technology.
+            str += technologyList.indexOf(technology) + ":" + technology.displayCondensed() + "\n";
+        }
+        if (str.isEmpty()){
+            return "No Technology";
+        }
+        else {
+            return str;
         }
     }
+    //Update method
+    public Technology findTechnology(int index){
+        if (isValidIndex(index)){
+            return technologyList.get(index);
+        }
+        return null;
+    }
+    public boolean isValidIndex(int index) {
+        return (index >= 0) && (index < technologyList.size());
+    }
 
+    public boolean isValidWearableDeviceIndex(int index) {
+        if (isValidIndex(index)) {
+            return (technologyList.get(index)) instanceof WearableDevice;
+        }
+        return false;
+    }
 
+    public boolean isValidSmartBandIndex(int index) {
+        if (isValidIndex(index)) {
+            return (technologyList.get(index)) instanceof SmartBand;
+        }
+        return false;
+    }
 
+    public boolean isValidSmartWatchIndex(int index) {
+        if (isValidIndex(index)) {
+            return (technologyList.get(index)) instanceof SmartWatch;
+        }
+        return false;
+    }
+    public boolean isValidComputingDeviceIndex(int index){
+        if (isValidIndex(index)){
+            return (technologyList.get(index)) instanceof ComputingDevice;
+        }
+        return false;
+    }
+    public boolean isValidTabletIndex(int index){
+        if (isValidIndex(index)){
+            return (technologyList.get(index)) instanceof Tablet;
+        }
+        return false;
+    }
+
+    public boolean updateWearableDevice(int indexToUpdate,String modelName,double price,Manufacturer manufacturer,String id,String size,String material){
+        //find the object by the index number
+        Technology foundWearableDevice = findTechnology(indexToUpdate);
+        //if the object exists update it
+        if ((foundWearableDevice != null) && (foundWearableDevice instanceof WearableDevice)){
+            foundWearableDevice.setModelName(modelName);
+            foundWearableDevice.setPrice(price);
+            foundWearableDevice.setManufacturer(manufacturer);
+            foundWearableDevice.setId(id);
+            ((WearableDevice) foundWearableDevice).setSize(size);
+            ((WearableDevice) foundWearableDevice).setMaterial(material);
+            return true;
+        }
+        return false;//if no object exist
+    }
+    public boolean updateSmartBand(int indexToUpdate,String modelName,double price,Manufacturer manufacturer,String id,String size,String material,boolean heartRateMonitor){
+        Technology foundSmartBand = findTechnology(indexToUpdate);
+        if ((foundSmartBand != null) && (foundSmartBand instanceof SmartBand)){
+            foundSmartBand.setModelName(modelName);
+            foundSmartBand.setPrice(price);
+            foundSmartBand.setManufacturer(manufacturer);
+            foundSmartBand.setId(id);
+            ((SmartBand) foundSmartBand).setSize(size);
+            ((SmartBand) foundSmartBand).setMaterial(material);
+            ((SmartBand) foundSmartBand).setHeartRateMonitor(heartRateMonitor);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateSmartWatch(int indexToUpdate,String modelName, double price, Manufacturer manufacturer, String id, String size, String material,String displayType){
+        Technology foundSmartWatch = findTechnology(indexToUpdate);
+        if ((foundSmartWatch != null) && (foundSmartWatch instanceof SmartWatch)){
+            foundSmartWatch.setModelName(modelName);
+            foundSmartWatch.setPrice(price);
+            foundSmartWatch.setManufacturer(manufacturer);
+            foundSmartWatch.setId(id);
+            ((SmartWatch) foundSmartWatch).setSize(size);
+            ((SmartWatch) foundSmartWatch).setMaterial(material);
+            ((SmartWatch) foundSmartWatch).setDisplayType(displayType);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateComputingDevice(int indexToUpdate,String modelName, Double price, Manufacturer manufacturer, String id,String processor,int storage){
+        Technology foundComputingDevice = findTechnology(indexToUpdate);
+        if ((foundComputingDevice != null) && (foundComputingDevice instanceof ComputingDevice)){
+            foundComputingDevice.setModelName(modelName);
+            foundComputingDevice.setPrice(price);
+            foundComputingDevice.setManufacturer(manufacturer);
+            foundComputingDevice.setId(id);
+            ((ComputingDevice) foundComputingDevice).setProcessor(processor);
+            ((ComputingDevice) foundComputingDevice).setStorage(storage);
+            return true;
+        }
+        return false;
+    }
+    public boolean updateTablet(int indexToUpdate,String modelName, Double price, Manufacturer manufacturer, String id,String processor,int storage,String operatingSystem){
+        Technology foundTablet = findTechnology(indexToUpdate);
+        if ((foundTablet != null) && (foundTablet instanceof Tablet)){
+            foundTablet.setModelName(modelName);
+            foundTablet.setPrice(price);
+            foundTablet.setManufacturer(manufacturer);
+            foundTablet.setId(id);
+            ((Tablet) foundTablet).setProcessor(processor);
+            ((Tablet) foundTablet).setStorage(storage);
+            ((Tablet) foundTablet).setOperatingSystem(operatingSystem);
+            return true;
+        }
+        return false;
+    }
+    //Delete method
+    public Technology deleteTechnology(int indexToDelete){
+        if (isValidIndex(indexToDelete)) {
+            return technologyList.remove((indexToDelete));
+        }
+        return null;
+    }
     //TODO - Number methods
     public int numberOfTechnologyDevices() {
     }

@@ -1,9 +1,11 @@
 package models;
 import utils.Utilities;
 public  class  SmartWatch extends WearableDevice{
+    private String dispalyTye = "LCD";
 
-    public SmartWatch(String modelName, double price, Manufacturer manufacturer, String id, String size, String material) {
+    public SmartWatch(String modelName, double price, Manufacturer manufacturer, String id, String size, String material,String displayType) {
         super(modelName, price, manufacturer, id, size, material);
+        this.displayType = displayType;
     }
 
     public String getDisplayType() {
