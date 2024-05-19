@@ -258,6 +258,26 @@ public class TechnologyDeviceAPI implements ISerializer{
         }
         return null;
     }
+    public Technology deleteTechnologyById(String nameToDelete) {
+        if (technologyList.isEmpty()) {
+            return null;
+        } else {
+            Technology printfoundsong = null;
+            String songtobefound = "";
+            for (int i = 0; i < technologyList.size(); i++) {
+                songtobefound = "" + technologyList.get(i);
+                if (songtobefound.equals(nameToDelete)) {
+                    technologyList.remove(printfoundsong);;
+                    break;
+
+                } else {
+                    return null;
+                }
+            }
+            return null;
+
+        }
+    }
 
 
     //TODO - sort methods
