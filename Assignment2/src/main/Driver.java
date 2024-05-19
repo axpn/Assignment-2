@@ -329,6 +329,45 @@ public class Driver {
                     option = manufacturerReportsMenu();
                 }
             }
+    public int technologyReportMenu(){
+        System.out.println(""" 
+                ---------- Technology Reports Menu  -----------------
+               | 1) List all technology                             | 
+               | 2) List all SmartBands                             |
+               | 3) List all Smart watch                            |
+               | 4) List all Tablets                                |
+               | 5) List all devices above a price                  |
+               | 6) List all devices below a price                  |
+               | 7) List all Tablets by operating system            |
+               | 8) List all techdevice by a chosen manufacturer    | 
+               | 9) List the top five most expensive technology     |
+               | 10) List the top five most expensive smart watches |
+               | 11) List the top five most expensive tablets       |
+               | 0) Return to main menu                             | 
+                 ---------------------------------------------------  """);
+        return ScannerInput.readNextInt("==>>");
+    }
+    public void runTechnologyReports(){
+        int option = technologyReportMenu();
+        while(option !=0){
+            switch(option){
+                case 1-> System.out.println(techAPI.listAllTechnologyDevices());
+                case 2-> System.out.println(techAPI.listAllSmartBands());
+                case 3-> System.out.println(techAPI.listAllSmartWatches());
+                case 4-> System.out.println(techAPI.listAllTablets());
+                case 5-> System.out.println(techAPI.listAllTechnologyAbovePrice());
+                case 6-> System.out.println(techAPI.listAllTechnologyBelowPrice());
+                case 7-> System.out.println(techAPI.listAllTabletsByOpertingSystem());
+                case 8-> System.out.println(techAPI.listAllTechDevicesByChosenManufacturer());
+                case 9-> System.out.println(techAPI.topFiveMostExpensiveTechnology());
+                case 10-> System.out.println(techAPI.topFiveMostExpensiveSmartWatch());
+                case 11-> System.out.println(techAPI.topFiveMostExpensiveTablet());
+                default->  System.out.println("Invalid option entered" + option);
+            }
+            ScannerInput.readNextLine("\n Press the enter key to continue");
+            option =  technologyReportMenu();
+        }
+    }
 
 //todo update methods counting methods
 
@@ -354,4 +393,24 @@ public class Driver {
                     return null;
                 }
             }
+
+    private void saveAll(){
+        try {
+            System.out.println("Saving to file:"+ manufacturerAPI.fileName());
+            System.out.println("Saving to file:"+ techAPI.fileName());
+            manufacturerAPI.save();
+            techAPI.save();
+        }catch (Exception e){
+            System.err.println("Error writing to file:"+e);
         }
+    }
+    private void loadAll(){
+        try {
+            System.out.println("Loading from file:"+ manufacturerAPI.fileName());
+            System.out.println("Loading from file:"+ techAPI.fileName());
+            manufacturerAPI.load();
+            techAPI.load();
+        }catch (Exception e){
+            System.err.println("Error reading from file:"+e);
+        }
+    }}
