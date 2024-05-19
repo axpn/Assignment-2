@@ -27,6 +27,7 @@ public class Driver {
             //TODO - construct fields
 
             //TODO - load all data once the serializers are set up
+
             runMainMenu();
         }
 
@@ -56,6 +57,11 @@ public class Driver {
                 switch (option) {
                     case 1->  runManufacturerMenu();
                     //TODO - Add options
+                    case 2->  runtechAPIMenu();
+                    case 3->  runReportsMenu();
+                    case 4->  manufacturerAPI.searchManufacturer();
+                    case 5->  techAPI.searchTechnologyDevice();
+                    case 6->  techAPI.
                     default ->  System.out.println("Invalid option entered" + option);
                 }
                 ScannerInput.readNextLine("\n Press the enter key to continue");
