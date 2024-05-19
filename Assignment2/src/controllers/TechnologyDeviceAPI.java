@@ -8,7 +8,7 @@ import utils.ISerializer;
 import utils.OperatingSystemUtility;
 
 import utils.Utilities;
-
+import models.Technology;
 import java.io.*;
 import java.util.*;
 
@@ -237,8 +237,17 @@ public class TechnologyDeviceAPI implements ISerializer{
 
 
     //TODO - sort methods
-    public void sortByPriceDescending() {
+    public void sortByPriceDescending(){
+        
     }
+    public void sortByPriceAscending(){
+
+    }
+    public void swapTechnology(List<Technology> technologyList,int i, int j){
+        Technology temp =  technologyList.get(i);
+        technologyList.set(i,technologyList.get(j));
+        technologyList.set(j,temp);
+    }//learned from CSDN use"List.set"to swap as Assigning an object reference to another object reference is not allowed.  should swap the positions of the objects in the list directly instead of their references.
     //TODO Top 5 methods
 public List<Technology> topFiveMostExpenxiveTablet(){}
 
