@@ -4,6 +4,7 @@
  *          write the CRUD method and valid method in TechnologyDeviceAPI class ;write the Technology Store Menu.
  * ChiMa:finished the computing device class and tablet class;finshed the save and load method in TechnologyDeviceAPI class and Driver class;finished the number methods and sort methods in TechnologyDeviceAPI class;
  *       finshed the technologyReportMenu ,sortMenu(),runSortMenu(),listAllSmartWatches(),listAllTablets(),listAllTechnologyBelowPrice,listAllTechDevicesByChosenManufacturer, getManufacturerName(),write some test codes inTechnologyDeviceAPITest.
+ * Bai Yunpeng  finish Smartband and Smartwatch method in controll      Smartband and Smartwatchtest
  **/
 package main;
 
