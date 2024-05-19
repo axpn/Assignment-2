@@ -86,7 +86,7 @@ public class TechnologyDeviceAPI implements ISerializer{
             return (technologyList.get(index)) instanceof Tablet;
         }
         return false;
-    }
+    }//will be used in Driver class
 
     public boolean updateWearableDevice(int indexToUpdate,String modelName,double price,Manufacturer manufacturer,String id,String size,String material){
         //find the object by the index number
