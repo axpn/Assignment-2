@@ -35,6 +35,7 @@ public  class  SmartWatch extends WearableDevice{
     public String connectToInternet() {
         return "Connects to the internet via bluetooth";
     }
+    public String displayCondensed(){return super.getModelName() + super.getPrice   () + super.getManufacturer() + super.getId() + ": smartWatch(" + displayType + ")";};
     @Override
     public String toString() {
 

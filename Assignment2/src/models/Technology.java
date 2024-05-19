@@ -46,7 +46,7 @@ public abstract class Technology {
     }
     public abstract  double getInsurancePremium();
     public abstract String connectToInternet();
-    public abstract String displayCondensed();
+    public abstract String displayCondensed();//to list all technology values    learned from the code of SocialNetWorkV9.0
     @Override
     public String toString() {
         return "Technology{" + "modelName= " + modelName + ", price=" + price + ", manufacturer=" + manufacturer + ", id= " + id + '}';
