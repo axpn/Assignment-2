@@ -167,13 +167,50 @@ public class TechnologyDeviceAPI implements ISerializer{
     }
     //TODO - Number methods
     public int numberOfTechnologyDevices() {
+        return technologyList.size();
+    }
+
+    public int numberOfSmartWatch(){
+        int number =0;
+        for(Technology technology: technologyList){
+            if(technology instanceof SmartWatch ){
+                number++;
+            }
+        }
+        return number;
+    }
+    public int numberOfSmartBands(){
+        int number =0;
+        for(Technology technology: technologyList){
+            if(technology instanceof SmartBand ){
+                number++;
+            }
+        }
+        return number;
+    }
+    public int numberOfTablets(){
+        int number =0;
+        for(Technology technology: technologyList){
+            if(technology instanceof  Tablet ){
+                number++;
+            }
+        }
+        return number;
+    }
+    public int numberOfTechnologyByChosenManufacturer(Manufacturer  manufacturer){
+        int number=0;
+        for(Technology technology:technologyList){
+            if(technology.getManufacturer().equals(manufacturer)){
+                number++;
+            }
+        }
+        return number;
     }
 
     // TODO Read/list methods
     public Object getTechnologyByIndex(int i) {
     }
-    public String listAllTechnologyDevices() {
-    }
+
     public String listAllTechnologyAbovePrice(double v) {
     }
 
