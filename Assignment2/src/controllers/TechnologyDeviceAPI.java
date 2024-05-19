@@ -5,9 +5,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import models.*;
 
 import utils.ISerializer;
-import utils.OperatingSystemUtility;
 
-import utils.Utilities;
 import models.Technology;
 import java.io.*;
 import java.util.*;
@@ -237,10 +235,27 @@ public class TechnologyDeviceAPI implements ISerializer{
 
 
     //TODO - sort methods
-    public void sortByPriceDescending(){
-        
+    public void sortByPriceDescending(List<Technology> technologyList){
+        for (int i=technologyList.size()-1;i>=0;i--){
+            int highestIndex=i;
+            for (int j=i;j>=0;j--){
+                if (technologyList.get(j).getPrice()<technologyList.get(highestIndex).getPrice()){
+                    highestIndex=j;
+                }
+            }
+            swapTechnology(technologyList,i,highestIndex);
+        }
     }
-    public void sortByPriceAscending(){
+    public void sortByPriceAscending(List<Technology> technologyList){
+        for (int i=technologyList.size()-1;i>=0;i--){
+            int highestIndex=i;
+            for (int j=i;j>=0;j--){
+                if (technologyList.get(j).getPrice()>technologyList.get(highestIndex).getPrice()){
+                    highestIndex=j;
+                }
+            }
+            swapTechnology(technologyList,i,highestIndex);
+        }
 
     }
     public void swapTechnology(List<Technology> technologyList,int i, int j){
