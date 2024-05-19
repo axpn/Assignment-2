@@ -30,11 +30,11 @@ class TechnologyDeviceAPITest {
         } catch (Exception e){
             System.out.println(e);
         }
-
     }
 
     @AfterEach
     void tearDown() {
+
     }
     @Nested
     class GettersAndSetters {
@@ -112,6 +112,7 @@ class TechnologyDeviceAPITest {
 
     @Nested
     class SortingMethods {
+
 
         @Test
         void sortByCostDescendingReOrdersList() {

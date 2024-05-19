@@ -2,6 +2,8 @@
  * Author:Yi Zhang,Chi Ma,Yunpeng Bai
  * Yi Zhang:finished the Technology class and WearableDevice class;finished the WearableDeviceTest class
  *          write the CRUD method and valid method in TechnologyDeviceAPI class ;write the Technology Store Menu.
+ * ChiMa:finished the computing device class and tablet class;finshed the save and load method in TechnologyDeviceAPI class and Driver class;finished the number methods and sort methods in TechnologyDeviceAPI class;
+ *       finshed the technologyReportMenu ,sortMenu(),runSortMenu(),listAllSmartWatches(),listAllTablets(),listAllTechnologyBelowPrice,listAllTechDevicesByChosenManufacturer, getManufacturerName(),write some test codes inTechnologyDeviceAPITest.
  **/
 package main;
 
