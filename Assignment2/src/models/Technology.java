@@ -46,7 +46,7 @@ public abstract class Technology {
     }
     public abstract  double getInsurancePremium();
     public abstract String connectToInternet();
-
+    public abstract String displayCondensed();
     @Override
     public String toString() {
         return "Technology{" + "modelName= " + modelName + ", price=" + price + ", manufacturer=" + manufacturer + ", id= " + id + '}';

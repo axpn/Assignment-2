@@ -17,23 +17,27 @@ import java.util.*;
 //TODO - ensure that this class implements iSerializer
 public class TechnologyDeviceAPI implements ISerializer{
 
-
-
-
-
-
-
     //TODO - create 2 fields
     private List<Technology> technologyList=new ArrayList<>();
-private File file;
+    private File file;
 
     //TODO - create constructor
-public TechnologyDeviceAPI(File file) {
+    public TechnologyDeviceAPI(File file) {
+
     this.file=file;
 }
    //TODO - CRUD Methods
-//Create method
-    public boolean addTechnologyDevice(Technology technology){}
+   //Create method
+    public boolean addTechnologyDevice(Technology technology){
+        return technologyList.add(technology);
+    }
+    //Read method
+    public String listAllTechnologyDevice(){
+        String str = "";
+        for (Technology technology : technologyList){
+            str += technologyList.indexOf(technology) + ":" + technology.
+        }
+    }
 
 
 
