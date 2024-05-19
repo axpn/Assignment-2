@@ -212,7 +212,46 @@ public class TechnologyDeviceAPI implements ISerializer{
     }
 
     // TODO Read/list methods
+public String listAllSmartWatches(){
+String str ="";
+for(Technology technology:technologyList) {
+    if (technology instanceof SmartWatch) {
+        str += technologyList.indexOf(technology) + ":" + technology.display() + "\n";
+    }
+    if (str.isEmpty()) {
+        return "No Smart Watches";
+    } else {
+        return str;
+    }
+}return str;
+}
+public String listAllSmartBands(){
+        String str ="";
+    for(Technology technology:technologyList) {
+        if (technology instanceof SmartBand) {
+            str += technologyList.indexOf(technology) + ":" + technology.display() + "\n";
+        }
+        if (str.isEmpty()) {
+            return "No Smart Bands";
+        } else {
+            return str;
+        }
+    }return str;
 
+}
+public String listAllTablets(){
+        String str ="";
+    for(Technology technology:technologyList) {
+        if (technology instanceof SmartBand) {
+            str += technologyList.indexOf(technology) + ":" + technology.display() + "\n";
+        }
+        if (str.isEmpty()) {
+            return "No Smart Bands";
+        } else {
+            return str;
+        }
+    }return str;
+}
 
     public String listAllTechnologyAbovePrice(double v) {
         if (technologyList.isEmpty()) {
@@ -230,6 +269,45 @@ public class TechnologyDeviceAPI implements ISerializer{
             }
         }
     }
+    public String listAllTechnologyBelowPrice(double v){
+        if (technologyList.isEmpty()) {
+            return "No Products in the store";
+        } else {
+            String str = "";
+            for (int i = 0; i < technologyList.size(); i++) {
+                if (technologyList.get(i).getPrice() < v)
+                    str += i + ": " +technologyList.get(i) + "\n";
+            }
+            if (str.equals("")) {
+                return "No products are cheaper than: " + v;
+            } else {
+                return str;
+            }
+        }
+    }
+    public String listAllTabletsByOpertingSystem(String opeartingSystem){
+        if (!technologyList.isEmpty()) {
+            String listTablets = "";
+            for (Technology technology:technologyList) {
+                if (technology instanceof Tablet){
+                    if (((Tablet)technology).getOperatingSystem().equalsIgnoreCase(opeartingSystem))
+                    listTablets += technologyList.indexOf(technology) + ": " + technology + "\n";
+            }else return "No tablet with the operating system ";
+            }
+            if (listTablets.equals("")) {
+                return "No tablets in the list";
+            } else {
+                return listTablets;
+            }
+        }
+        else return "There are no tablets in the list.";
+
+    }
+
+
+
+
+
 
 
 
