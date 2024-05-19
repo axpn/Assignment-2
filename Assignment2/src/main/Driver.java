@@ -64,9 +64,9 @@ public class Driver {
                 //TODO - Add options
                 case 2 -> runtechAPIMenu();
                 case 3 -> runReportsMenu();
-                case 4 -> manufacturerAPI.searchManufacturer();
-                case 5 -> techAPI.searchTechnologyDevice();
-                case 6 -> techAPI.
+                case 4 -> searchManufacturer();
+                case 5 -> searchTechnologyDevice();
+                case 6 -> sortMenu();
                 case 11 -> saveAll();
                 case 12 -> loadAll();
                 default -> System.out.println("Invalid option entered" + option);
@@ -300,7 +300,7 @@ public class Driver {
                 System.out.println(""" 
                          --------Reports Menu ---------
                         | 1) Manufacturers Overview    | 
-                        | 2) Technology Overview         |
+                        | 2) Technology Overview       |
                         | 0) Return to main menu       | 
                           -----------------------------  """);
                 return ScannerInput.readNextInt("==>>");
@@ -369,6 +369,39 @@ public class Driver {
         }
     }
 
+    public int sortMenu(){
+        System.out.println(""" 
+                         --------Sort Menu ------------
+                        | 1) sortByPriceDescending     | 
+                        | 2) sortByPriceAscending      |
+                        | 0) Return to main menu       | 
+                          -----------------------------  """);
+        return ScannerInput.readNextInt("==>>");
+    }
+    public void runSortMenu(){
+        int option = sortMenu();
+        while (option != 0) {
+            switch (option) {
+                case 1 -> System.out.println(techAPI.sortByPriceDescending());
+                case 2 -> System.out.println(techAPI.sortByPriceAscending());
+                default -> System.out.println("Invalid option entered" + option);
+            }
+            ScannerInput.readNextLine("\n Press the enter key to continue");
+            option = sortMenu();
+        }
+}
+public void searchManufacturer(){
+    System.out.println("find a manufacturer by name");
+
+        String name =ScannerInput.readNextLine("Please enter the name of the manufacturer you choose");
+        System.out.println(manufacturerAPI.getManufacturerByName(name));
+
+}
+    public void searchTechnologyDevice(){
+        System.out.println("find a TecDevice by index");
+        int index = ScannerInput.readNextInt("Please enter the index of the TechDevice you choose");
+        System.out.println(techAPI.getTechnologyByIndex(index));
+    }
 //todo update methods counting methods
 
 

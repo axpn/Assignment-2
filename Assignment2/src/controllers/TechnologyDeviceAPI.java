@@ -395,7 +395,6 @@ public String listAllTablets(){
             }
             swapTechnology(technologyList,i,highestIndex);
         }
-
     }
     public void swapTechnology(List<Technology> technologyList,int i, int j){
         Technology temp =  technologyList.get(i);
