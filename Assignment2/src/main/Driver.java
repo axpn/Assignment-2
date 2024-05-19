@@ -1,7 +1,7 @@
 /**
  * Author:Yi Zhang,Chi Ma,Yunpeng Bai
  * Yi Zhang:finished the Technology class and WearableDevice class;finished the WearableDeviceTest class
- *          write the CRUD method and valid method in TechnologyDeviceAPI class ;write the Technology Store Menu
+ *          write the CRUD method and valid method in TechnologyDeviceAPI class ;write the Technology Store Menu.
  **/
 package main;
 
