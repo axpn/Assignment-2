@@ -44,6 +44,9 @@ public abstract class Technology {
     public void setId(String id) {
         this.id = id;
     }
+    public String display(){
+        return (modelName + "\n" + price + "\n" + manufacturer + "\n" + id + "\n");
+    }
     public abstract  double getInsurancePremium();
     public abstract String connectToInternet();
     public abstract String displayCondensed();//to list all technology values    learned from the code of SocialNetWorkV9.0

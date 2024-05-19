@@ -49,6 +49,17 @@ public class TechnologyDeviceAPI implements ISerializer{
         }
         return null;
     }
+    //the following is isValidId can be updated
+    //to suit your code
+    /*public boolean isValidId(String id) {
+        for (Technology techDev : technologyList) {
+            if (techDev.getId().equals(id))
+                return false;
+        }
+            return true;
+        }
+*/
+
     public boolean isValidIndex(int index) {
         return (index >= 0) && (index < technologyList.size());
     }
@@ -213,16 +224,6 @@ public class TechnologyDeviceAPI implements ISerializer{
     }
 
 
-    //the following is isValidId can be updated
-    //to suit your code
-    /*public boolean isValidId(String id) {
-        for (Technology techDev : technologyList) {
-            if (techDev.getId().equals(id))
-                return false;
-        }
-            return true;
-        }
-*/
 
     //TODO get Technology methods
 

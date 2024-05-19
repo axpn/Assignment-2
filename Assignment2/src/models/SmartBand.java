@@ -4,7 +4,6 @@ import utils.Utilities;
 
 public  class SmartBand extends WearableDevice{
 
-
     public void setHeartRateMonitor(boolean heartRateMonitor) {
         this.heartRateMonitor = heartRateMonitor;
     }

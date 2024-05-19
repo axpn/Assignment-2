@@ -62,12 +62,15 @@ public class Driver {
                     case 4->  manufacturerAPI.searchManufacturer();
                     case 5->  techAPI.searchTechnologyDevice();
                     case 6->  techAPI.
+                    case 11-> saveAll();
+                    case 12-> loadAll();
                     default ->  System.out.println("Invalid option entered" + option);
                 }
                 ScannerInput.readNextLine("\n Press the enter key to continue");
                 option = mainMenu();
             }
-            exitApp();
+            System.out.println("Exiting...bye");
+            System.exit(0);
         }
 
         private void exitApp(){
@@ -176,6 +179,103 @@ public class Driver {
                 ----------------------------""");
             return ScannerInput.readNextInt("==>>");
         }
+        private void runtechAPIMenu(){
+            int option = techAPIMenu();
+            while (option != 0){
+                switch (option){
+                    case 1-> addTechDevice();
+                    case 2-> deleteTechDevice();
+                    case 3-> System.out.println(techAPI.listAllTechnologyDevice());
+                    case 4-> updateTechDevice();
+                    default -> System.out.println("Invalid option entered" + option);
+                }
+                ScannerInput.readNextLine("\n Press the enter key to continue");
+                option = techAPIMenu();
+            }
+        }
+        private void addTechDevice(){
+            String modelName = ScannerInput.readNextLine("Please enter the model name");
+            double price = ScannerInput.readNextDouble("Please enter the price");
+            String id = ScannerInput.readNextLine("Please enter the id");
+        }
+        private void deleteTechDevice(){
+            System.out.println(techAPI.listAllTechnologyDevice());
+            int indexToDelete = ScannerInput.readNextInt("Enter the index of the tech device to delete");
+            Technology technologyToDelete = techAPI.deleteTechnology(indexToDelete);
+            if (technologyToDelete != null){
+                System.out.println("Delete Successfully! Delete technology: " + technologyToDelete.display());
+            }
+            else {
+                System.out.println("Delete NOT Successfully");
+            }
+        }
+        private void updateTechDevice(){
+            if (techAPI.numberOfTechnologyDevices() > 0){
+                boolean isUpdated = false;
+                int option = ScannerInput.readNextInt("""
+                        ---------------------------------
+                        |   1) Update a Smart Watch
+                        |   2) Update a Smart Band
+                        |   3) Update a Tablet
+                        ----------------------------------
+                        ==>> """);
+                switch (option){
+                    case 1->{
+                    System.out.println(techAPI.listAllTechnologyDevice());
+                    if (techAPI.numberOfSmartWatch() > 0){
+                        int smartWatchIndex = ScannerInput.readNextInt("Enter the index of the watch to update");
+                        if (techAPI.isValidSmartWatchIndex(smartWatchIndex)){
+                            String modelName = ScannerInput.readNextLine("Enter the model name: ");
+                            double price = ScannerInput.readNextDouble(" Enter the model price: ");
+                            String id = ScannerInput.readNextLine("Enter the model id: ");
+                            String size = ScannerInput.readNextLine("Enter the model size: ");
+                            String material = ScannerInput.readNextLine("Enter the model material: ");
+                            String displayType = ScannerInput.readNextLine("Enter the model display type: ");
+                            String manufactureName = ScannerInput.readNextLine("Enter the manufacture name");
+                            int numEmployees = ScannerInput.readNextInt("Enter the num of the employees");
+                            Manufacturer manufacturer = new Manufacturer(manufactureName,numEmployees);
+                            isUpdated = techAPI.updateSmartWatch(smartWatchIndex,modelName,price,manufacturer,id,size,material,displayType);
+                        }
+                    }
+                }
+                case 2-> {
+                    System.out.println(techAPI.listAllTechnologyDevice());
+                    if (techAPI.numberOfSmartBands() > 0) {
+                        int smartBandIndex = ScannerInput.readNextInt("Enter the index of the watch to update");
+                            if (techAPI.isValidSmartWatchIndex(smartBandIndex)) {
+                                String modelName = ScannerInput.readNextLine("Enter the model name: ");
+                                double price = ScannerInput.readNextDouble(" Enter the model price: ");
+                                String id = ScannerInput.readNextLine("Enter the model id: ");
+                                String size = ScannerInput.readNextLine("Enter the model size: ");
+                                String material = ScannerInput.readNextLine("Enter the model material: ");
+                                char isMonitored = ScannerInput.readNextChar("Is this band is monitored");
+                                boolean heartRateMonitor = Utilities.YNtoBoolean(isMonitored);
+                                String manufactureName = ScannerInput.readNextLine("Enter the manufacture name");
+                                int numEmployees = ScannerInput.readNextInt("Enter the num of the employees");
+                                Manufacturer manufacturer = new Manufacturer(manufactureName, numEmployees);
+                                isUpdated = techAPI.updateSmartBand(smartBandIndex, modelName, price, manufacturer, id, size, material, heartRateMonitor);
+                            }
+                    }
+                }
+                case 3-> {
+                    System.out.println(techAPI.listAllTechnologyDevice());
+                    if (techAPI.numberOfTablets() >= 0){
+                        int tabletIndex = ScannerInput.readNextInt("Enter the index of the tablet to update");
+                        if (techAPI.isValidTabletIndex(tabletIndex)) {
+                            String modelName = ScannerInput.readNextLine("Enter the model name: ");
+                            double price = ScannerInput.readNextDouble(" Enter the model price: ");
+                            String id = ScannerInput.readNextLine("Enter the model id: ");
+                            String processor = ScannerInput.readNextLine("Enter the processor: ");
+                            int storage = ScannerInput.readNextInt("Enter the model storage: ");
+                            String operatingSystem = ScannerInput.readNextLine("Enter the operating system:");
+                            String manufactureName = ScannerInput.readNextLine("Enter the manufacture name");
+                            int numEmployees = ScannerInput.readNextInt("Enter the num of the employees");
+                            Manufacturer manufacturer = new Manufacturer(manufactureName, numEmployees);
+                            isUpdated = techAPI.updateTablet(tabletIndex,modelName,price,manufacturer,id,processor,storage,operatingSystem);
+                        }
+                    }
+                    }
+                }
 
 
 

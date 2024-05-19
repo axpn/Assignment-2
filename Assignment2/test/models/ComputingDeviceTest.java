@@ -23,7 +23,7 @@ public class ComputingDeviceTest {
         Manufacturer manufacturer = new Manufacturer("Samsung", 333);
         Manufacturer invalidManufacturer = new Manufacturer("ABCDEFGHIJKLMNOPQRSTU", 0);
         validTablet = new Tablet("Galaxy Tab S7", 799.99, manufacturer, "123456", "Snapdragon 865", 64, "Android");
-        invalidTablet = new Tablet("Galaxy Tab S7 version 1 c.09462b", 19, invalidManufacturer, "12345678910", "Snapdragon 8655678920", 19, "Android");
+        invalidTablet = new Tablet("Galaxy Tab S7 version 1 c.09462b", 19.0, invalidManufacturer, "12345678910", "Snapdragon 8655678920", 19, "Android");
 
     }
 
