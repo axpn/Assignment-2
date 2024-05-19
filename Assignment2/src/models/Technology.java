@@ -36,6 +36,9 @@ public abstract class Technology {
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
+    public String getManufacturerName(){
+        return manufacturer.getManufacturerName();
+    }
 
     public String getId() {
         return id;

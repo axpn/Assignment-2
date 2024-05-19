@@ -303,6 +303,21 @@ public String listAllTablets(){
         else return "There are no tablets in the list.";
 
     }
+    public String listAllTechDevicesByChosenManufacturer(Manufacturer manufacturer){
+        if (!technologyList.isEmpty()) {
+            String listbyManufacturers = "";
+            for (Technology technology:technologyList) {
+                if (technology.getManufacturerName().equalsIgnoreCase(String.valueOf(manufacturer)))
+                    listbyManufacturers += technologyList.indexOf(manufacturer) + ": " + manufacturer + "\n";
+            }
+            if (listbyManufacturers.equals("")) {
+                return " No technology manufactured by \" + \n" + manufacturer;
+            } else {
+                return listbyManufacturers;
+            }
+        }
+        else return "There are no TechDevices in the list.";
+    }
 
 
 
